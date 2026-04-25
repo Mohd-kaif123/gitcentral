@@ -1,5 +1,5 @@
 # for loop
-'''for i in range(1,5):
+for i in range(1,5):
     print(f"checking Server {i}....")
 
 #while loop
@@ -13,7 +13,7 @@ print("Servver is a up and running!")
 i = 1
 while i<=10:
     print(f"Checking server {i}...")
-    i+=1'''
+    i+=1
 
 #While loop
 j=10
