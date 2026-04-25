@@ -31,7 +31,7 @@ Kyu likhte hain: Ye ek definition hai jo batati hai ki kisi bhi "Server" mein ky
 
 Asaan bhasha mein: Ye ek "Form" ki tarah hai jo abhi khaali hai.
 
-####################
+#####################################################################
 2. Object: web_server
 Object us class ka ek Real Example ya Instance hai.
 
@@ -41,7 +41,7 @@ Details: Isme web_server object hai. Aap ek aur object bhi bana sakte hain: db_s
 
 Asaan bhasha mein: Ye ek bhara hua "Form" hai jo actual memory use kar raha hai.
 
-####################
+####################################################################
 
 3. Method: status() aur __init__
 Method class ke andar likhe gaye Functions ko kehte hain.
@@ -53,6 +53,58 @@ __init__: Ye ek special method hai jo data ko save (initialize) karta hai.
 status(): Ye aapka banaya hua custom method hai. Iska kaam server ka status print karna hai.
 
 Self ka role: Method ke andar self likhna zaroori hai taaki method ko pata chale ki usne apne hi object ka name aur ip use karna hai.
+
+########################################################################
+
+# Class ==> ek container ya blueprint,
+            - Agar ham class nahi use karte, toh hame server ke liye alag-alag variables (server_name, server1_ip) banane padta, jo manage karna muskil hota.
+
+# self.name = name aise kyu likhte hain?
+Yaha do alag cheezein hain:
+
+name (Right side): Ye wo value hai jo aapne bahar se bheji (e.g., "Webserver"). Ye temporary hai.
+
+self.name (Left side): Ye object ki apni permanent memory hai.
+
+Kyu likhte hain? Agar aap sirf name = name likhenge, toh wo function khatam hote hi gayab ho jayega. self. lagane se wo variable us object ke saath "chipak" jata hai aur aap use baad me status() jaise dusre functions me bhi use kar sakte hain.
+
+# Print ke andar f kya hai?
+Isse f-string (Formatted String) kehte hain.
+
+Kyu use karte hain? Pehle hume + laga kar strings ko jodna padta tha, jo bahut lamba kaam tha.
+
+f likhne se aap string ke andar hi {} (curly brackets) daal kar kisi bhi variable ki value print kar sakte hain. Ye code ko saaf aur readable banata hai.
+
+
+# __init__ ko underscore me kyu likhte hain?
+Dono side do-do underscore __ hone ka matlab hai ki ye ek Magic Method (ya Dunder method) hai.
+
+Reason: Python me inka special matlab hota hai. __init__ ko aapko manually call nahi karna padta (web_server.__init__() nahi likhna padta). Jaise hi aap Server() likhte hain, Python samajh jata hai ki use ye "underscore wala function" parde ke peeche se chala dena hai.
+
+# def __init__(self, name, ip):
+Kya hai: Isse Constructor kehte hain.
+
+Kyu likhte hain: Jab bhi aap koi naya object banate hain (jaise web_server), ye function apne aap chalta hai. Iska kaam hai object ko "initial values" dena.
+
+self ka logic: self wo rasta hai jisse Python ko pata chalta hai ki hum current object ki baat kar rahe hain. Bina self ke, Python ko samajh nahi aayega ki kaunse server ka naam set karna hai.
+
+name aur ip: Ye parameters hain jo hum object banate waqt pass karenge.
+
+# web_server = Server("Webserver", "198.162.1.10")
+Kya hai: Object creation.
+
+Kyu likhte hain: Yaha hum blueprint ko "zinda" kar rahe hain. Humne Server class ko call kiya aur values bhej di. Ab web_server ke paas apna data hai.
+
+# web_server.status()
+Kya hai: Method calling.
+
+Kyu likhte hain: Us specific server ka kaam check karne ke liye.
+
+
+
+########################################################################
+
+########################################################################
 
 .........................................................................
 
@@ -106,3 +158,7 @@ server1 = Server("Production Server",1.0,2.0)
 server1.display_info()
 server1.check_upadte()
 server1.update_server()
+
+
+#################################################################
+
