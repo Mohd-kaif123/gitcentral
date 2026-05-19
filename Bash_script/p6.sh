@@ -10,7 +10,7 @@ fi
 '
 
 #------------#LEVEL-5#-------------#
-
+: '
 while true
 do 
     echo "-----------------------------"
@@ -48,5 +48,48 @@ do
             echo "Galat option! please 1 se 4 ke bich me chne"
     esac
 
+    echo ""
+done
+'
+
+#------------#LEVEL-5#-------------#
+
+while true
+do
+    echo "=============================="
+    echo "    USER MANAGEMENT           "
+    echo "=============================="
+    echo "1. Create a User"
+    echo "2. Set/change Password"
+    echo "3. Delete a User"
+    echo "4. Exit"
+
+    read -p "Choose option [1-4]: " choice
+
+    case $choice in
+        1)
+            echo "------Create user --------"
+            read -p "User Name: " username
+            sudo useradd -m $username
+            echo "User '$username' successfully created"
+            ;;
+        2)
+            echo "--------- SET PASSWORD ----------"
+            read -p "kiske liye password set karna hai? Username: " username
+            sudo passwd $username
+            ;;
+        3)
+            echo "------------ DELETE USER ------------"
+            read -p "kaunsa user delete karna hai? Username:" username
+            sudo userdel -r $username
+            ;;
+        4) 
+            echo "Exiting.... Bye!"
+            exit 0
+            ;;
+        *)
+            echo "Invalid option! 1-4 ke beech hi select karo."
+            ;;
+    esac
     echo ""
 done
