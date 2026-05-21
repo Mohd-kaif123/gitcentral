@@ -16,6 +16,11 @@ uptime | awk '{print "server up time:", $3, $4}'
 
 # 2. CPU USAGE: CPU kitna use ho taha hai
 echo -e "[2] CPU USAGE:"
+# -bn1 :- lagane se yeh sirf ek baar screen par text print karke ruk jata hai.
+# grep "Cpu(s)": Yeh sirf CPU percentage wali line ko chunta hai.
+# awk '{print int(100 - $8)}': Us line ke 8th column me idle CPU (yaani khali bacha hua CPU) hota hai. 
+# Agar hum total 100 me se khali CPU minus kar dein (100 - khali), toh bacha hua Used CPU mil jata hai. 
+# int() points wali value ko hatakar pure number banata hai.
 CPU_USAGE=$(top -bn1 | grep "Cpu(s)" | awk '{print int(100 - $8)}')
 echo "Current CPU Usage: $CPU_USAGE%"
 
@@ -31,6 +36,9 @@ df -h | grep -E "Filesystem|/$"
 
 # 5. Top 5 PROCESSES: sabse zyada RAM/CPU khane wale top 5 process
 echo -e "\n[5] TOP 5 RESOURCES CONSUMING PROCESSES:"
+# -eo se hum custom columns chunte hain: PID (Process ID), CMD (Software ka naam), %MEM (RAM usage), aur %CPU (CPU usage).
+# --sort=-%cpu: Yeh sabse important hai. - (minus) lagane ka matlab hai Descending order (bade se chota).
+# Jo software sabse zyada CPU kha raha hoga, use yeh sabse upar laa dega.
 ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head -n 6
 
 echo "==================================================="
