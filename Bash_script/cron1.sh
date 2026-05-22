@@ -27,7 +27,7 @@ minute
 #date >> /mnt/d/bash_script/gitcentral/Bash_script/time.log
 
 #------------ Daily Backup Automation ------------#
-
+: '
 BACKUP_NAME="backup_$(date +%F).tar.gz"
 
 # jaha backup save karna hai aur jis folder ka backup lena hai
@@ -39,3 +39,8 @@ mkdir -p "$DEST_FOLDER"
 
 # Tar command se backup create karo
 tar -czf "$DEST_FOLDER/$BACKUP_NAME" "$SRC_FOLDER"
+'
+
+#------------ Auto Delete Old Logs ------------#
+
+# find /mnt/d/bash_script/gitcentral/Bash_script -name "*.log" -type f -mtime +7 -delete
