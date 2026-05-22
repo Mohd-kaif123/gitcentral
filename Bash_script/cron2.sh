@@ -30,16 +30,6 @@ DISK_USAGE=$(df -h / | awk 'NR==2 {print "Disk Usage: " $5}')
 
 # sabka ek sath format karke log file me append karo
 echo "$TIMESTAMP | CPU: $CPU_USAGE | $RAM_USAGE | $DISK_USAGE" >> "$LOG_FILE"
-'
 
 
-#------------ Website Monitoring Automation ------------#
 
-URL="https://google.com"
-LOG_FILE="/mnt/d/bash_script/gitcentral/Bash_script/website_status
-EMAIL="mansoorimohdkaif786@gmail.com"
-
-STATUS_CODE=$(curl -s -o /dev/null -w "%{http_code}" "URL")
-
-if [ "$STATUS_CODE" -ne 200 ]; then
-    
