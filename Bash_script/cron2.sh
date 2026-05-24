@@ -31,5 +31,3 @@ DISK_USAGE=$(df -h / | awk 'NR==2 {print "Disk Usage: " $5}')
 # sabka ek sath format karke log file me append karo
 echo "$TIMESTAMP | CPU: $CPU_USAGE | $RAM_USAGE | $DISK_USAGE" >> "$LOG_FILE"
 
-
-

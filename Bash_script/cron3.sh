@@ -46,6 +46,8 @@ Bash
 mysqldump -u [username] -p[password] [database_name] > backup.sql
 Dhyan dein: -p aur password ke beech me koi space (khali jagah) nahi hoti.
 '
+
+: '
 # 1. Configuration
 DB_USER="root"
 DB_PASS="Aapka password"   # <--- Apna real password likhein
@@ -69,3 +71,4 @@ if [ $? -eq 0 ]; then
 else
     ehco "$(date "+%Y-%m-%d %H:%M:%S") | ERROR: Database backup FAILED!" >> "$BACKUP_DIR/backup_status.log"
 fi
+'

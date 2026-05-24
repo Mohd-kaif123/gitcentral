@@ -1,8 +1,8 @@
 #!/bin/bash
 
 
-#------------ PROJECT-1: Auto Backup System ------------#
-
+#------------ PROJECT-2: Auto Backup System ------------#
+: '
 # --- CONFIGURATION ---
 SRC_DIR="/mnt/d/bash_script/gitcentral" # Jiska backup lena hai
 BACKUP_DIR="/mnt/d/bash_script/gitcentral/Bash_script/all_backups" # Jaha backup save karna hai
@@ -48,3 +48,4 @@ fi
 
 echo "=== Backup Process Completed ===" >> "$LOG_FILE"
 echo "" >> "$LOG_FILE"
+'

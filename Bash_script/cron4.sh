@@ -1,6 +1,6 @@
 #!/bin/bash
 #------------ Cron + Cleanup Automation ------------#
-
+: '
 LOG_FILE="/mnt/d/bash_script/gitcentral/Bash_script/cleanup.log"
 TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
 
@@ -93,3 +93,5 @@ TX_SPEED=$(( (TX_BYTES_2 - TX_BYTES_1) / 1024 ))
 
 echo "Network ($INTERFACE): Download: $RX_SPEED KB/s | Upload: $TX_SPEED KB/s"
 echo "=================================================="
+
+'
